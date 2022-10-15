@@ -6,6 +6,7 @@ import os
 from wtforms.validators import InputRequired
 
 application = Flask(__name__)
+app = application
 application.config['SECRET_KEY'] = 'supersecretkey'
 application.config['UPLOAD_FOLDER'] = 'static/files'
 

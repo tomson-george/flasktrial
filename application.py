@@ -20,9 +20,10 @@ def home():
     form = UploadFileForm()
     if form.validate_on_submit():
         file = form.file.data # First grab the file
-        file.save(os.path.join(os.path.abspath(os.path.dirname(__file__)),application.config['UPLOAD_FOLDER'],secure_filename(file.filename))) # Then save the file
         # Getting uploaded file name
         img_filename = secure_filename(file.filename)
+        # file.save(os.path.join(os.path.abspath(os.path.dirname(__file__)),application.config['UPLOAD_FOLDER'],secure_filename(file.filename))) # Then save the file
+        file.save(os.path.join(app.config['UPLOAD_FOLDER'], img_filename))
         # Storing uploaded file path in flask session
         uploaded_img_path = os.path.join(application.config['UPLOAD_FOLDER'], img_filename)
         return render_template("uploaded_successfully.html",user_image = uploaded_img_path)

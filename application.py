@@ -23,7 +23,7 @@ def home():
         # Getting uploaded file name
         img_filename = secure_filename(file.filename)
         # file.save(os.path.join(os.path.abspath(os.path.dirname(__file__)),application.config['UPLOAD_FOLDER'],secure_filename(file.filename))) # Then save the file
-        filepath = os.path.join(application.config['UPLOAD_FOLDER'], secure_filename(file.filename))
+        filepath = os.path.join(os.path.abspath(os.path.dirname(__file__)),application.config['UPLOAD_FOLDER'],secure_filename(file.filename))
         file.save(filepath)
         #filepath = os.path.join(app.config['UPLOAD_FOLDER'], img_filename)
         #file.save(filepath)

@@ -23,13 +23,12 @@ def home():
         # Getting uploaded file name
         img_filename = secure_filename(file.filename)
         # file.save(os.path.join(os.path.abspath(os.path.dirname(__file__)),application.config['UPLOAD_FOLDER'],secure_filename(file.filename))) # Then save the file
-        filepath = os.path.join(os.path.abspath(os.path.dirname(__file__)),application.config['UPLOAD_FOLDER'],secure_filename(file.filename))
-        print(filepath)
-        file.save(filepath)
+        # filepath = os.path.join(os.path.abspath(os.path.dirname(__file__)),application.config['UPLOAD_FOLDER'],secure_filename(file.filename))
+     
         #filepath = os.path.join(app.config['UPLOAD_FOLDER'], img_filename)
-        #file.save(filepath)
+        file.save(img_filename)
         
-        return render_template("uploaded_successfully.html",user_image = filepath)
+        return render_template("uploaded_successfully.html",user_image = img_filename)
     return render_template('index.html', form=form)
 
 if __name__ == '__main__':

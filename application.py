@@ -27,7 +27,6 @@ def home():
         #filepath = os.path.join(app.config['UPLOAD_FOLDER'], img_filename)
         file.save(img_filename)
         return render_template("uploaded_successfully.html",user_image = img_filename)
-        return  "File uploaded succesfully"
     return render_template('index.html', form=form)
 
 if __name__ == '__main__':
